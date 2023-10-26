@@ -1,0 +1,35 @@
+\ProvidesPackage{admonitions}
+
+% - admonitions ----------------------------------------------------------------
+% #1 - title text
+% #2 - contents text
+% \newcommand{\admonition}[2]{
+%    \vspace{1em}
+%    \begin{tabular}{|p{\linewidth}|}
+%        \hline
+%        \textbf{#1:} #2\\
+%        \hline
+%    \end{tabular}
+%    \vspace{1em}
+%}
+
+\newcommand{\admonition}[2]{
+    \vspace{1em}
+    \noindent\fbox{\begin{minipage}{\dimexpr\linewidth - 10pt\relax}
+        \textbf{#1:} #2
+    \end{minipage}}
+    \vspace{1em}
+}
+
+\newcommand{\TODO}[1]{
+    \admonition{TODO}{#1}
+}
+\newcommand{\danger}[1]{
+    \admonition{DANGER}{#1}
+}
+\newcommand{\note}[1]{
+    \admonition{NOTE}{#1}
+}
+\newcommand{\think}[1]{
+    \admonition{THINK}{#1}
+}

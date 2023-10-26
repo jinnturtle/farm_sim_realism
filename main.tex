@@ -1,0 +1,33 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{main}
+\usepackage[a4paper, textwidth=170mm, textheight=240mm]{geometry}
+
+\begin{document}
+\newlength{\tabcolsepDefault}
+\setlength{\tabcolsepDefault}{\tabcolsep}
+
+% color definitions ------------------------------------------------------------
+
+\definecolor{green1}{HTML}{A0F0C0}
+\definecolor{tableColor1}{HTML}{FFFFFF}
+\definecolor{tableColor2}{HTML}{F0E0D0}
+
+\rowcolors{1}{tableColor1}{tableColor2}
+
+% general commands -------------------------------------------------------------
+
+\newcommand{\textbi}[1]{\textbf{\textit{#1}}}
+
+\newcommand{\projName}{Jinn's Realism For Farming Simulator}
+
+%-------------------------------------------------------------------------------
+
+\title{\projName{}}
+\author{Jinnturtle\\ \gitVtag{}}
+
+\maketitle
+\tableofcontents
+
+
+
+\end{document}
