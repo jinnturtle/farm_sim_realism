@@ -49,7 +49,7 @@ majFixP = .15
 for i in range(len(pricesHP)):
     cumMinFPs = minFPs[i] + addMinFP
     cumMajFPs = majFPs[i] + addMajFP
-    failRate = 1 - (1 * ((1 - (cumMinFPs + cumMajFPs)) **12))
+    failRate = 1 - ((1 - (cumMinFPs + cumMajFPs)) **12)
     minProportion = 1 / (cumMinFPs + cumMajFPs) * cumMinFPs
     majProportion = 1 / (cumMinFPs + cumMajFPs) * cumMajFPs
 
