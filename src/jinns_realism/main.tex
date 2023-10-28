@@ -35,10 +35,12 @@
 
 \section{TODO Before RC}
 \begin{itemize}
-\item Transfer price reference tables from notes to this document.
 \item Resolve TODOs in the body of the document.
 \item Review probability balance in all tables. Esp. harvest and storage
   penalties.
+\item There's a large price jump between tractors from 1990s and 2000s,
+  should double-check market info for 1980s tractors and either adjust price or
+  reflect the difference in other game system areas e.g. reliability.
 \end{itemize}
 
 
@@ -93,10 +95,11 @@ probability of 14\% $(2\% + 3\% + 2\% + 4\% + 3\% = 14\%)$ as per table
 
 \rowcolors{3}{tableColor1}{white}
 \begin{table}
+\begin{center}
   \caption{Maintenance and Repair Costs and Time}
   \begin{tabular}{lll}
     \toprule
-    Failure          & Cost (\%of new) & Repair Duration  \\
+    Failure          & Cost (\%of new) & Downtime  \\
     \midrule
     Minor Breakdown  & 5\%             & $(d10 / 3)$ days\\
     Major Breakdown  & 15\%            & $(4 + d10)$ days \\
@@ -104,10 +107,12 @@ probability of 14\% $(2\% + 3\% + 2\% + 4\% + 3\% = 14\%)$ as per table
     Repaint          & 2\%             & 2 days\\
     \bottomrule
   \end{tabular}
+\end{center}
 \end{table}
 
 \rowcolors{3}{tableColor1}{white}
 \begin{table}
+\begin{center}
   \caption{Additional Equipment Failure Rates}
   \begin{tabular}{llcc}
     \toprule
@@ -139,6 +144,7 @@ probability of 14\% $(2\% + 3\% + 2\% + 4\% + 3\% = 14\%)$ as per table
     \bottomrule
   \end{tabular}
   \label{tab:equipmentFailRates}
+\end{center}
 \end{table}
 
 
@@ -182,7 +188,7 @@ e.g. mould, pests, moisture or temperature control errors, etc.
   \end{tabular}
   \label{tab:harvestQualityRolls}
 \end{center}
-\end{minipage}
+\end{minipage}%
 %
 \begin{minipage}{0.5\textwidth}
 \begin{center}
@@ -203,15 +209,26 @@ e.g. mould, pests, moisture or temperature control errors, etc.
 \end{table}
 
 
-\section{Buying Equipment}
+\section{Acquiring Equipment}
+\subsection{Buying}
 New equipment is always available to buy, but the price may fluctuate a bit.
 Used equipment may be harder to find, especially in the desired condition.
 
-When buying used equipment, first roll 1d100 against table
-\refPageref{tab:usedEquipmentOffers} to determine how many offers there are
-available on the market, then roll 1d10 against the table
-\refPageref{tab:usedEquipmentOfferRatings} to determine the condition of
-equipment on sale for each offer.
+The steps to follow when buying equipment are:
+\begin{enumerate}
+\item (Only if buying used.) Roll 1d100 against table
+  \refPageref{tab:usedEquipmentOffers} to determine how many offers there are
+  available on the market.
+\item (Only if buying used.) Then roll 1d10 against the table
+  \refPageref{tab:usedEquipmentOfferRatings} to determine the condition of
+  equipment on sale for each offer.
+\item Refer to \refPageref{tab:equipmentPrices} to determine the base price.
+\item Refer to \refPageref{tab:equipmentPriceModifiers} to determine the price
+  modifier.
+\item Calculate the final price using formula $P_b \times M_c$ where $P_b$ is
+  the base price and $M_c$ is the modifier. You can see some examples in table
+  \refPageref{tab:equipmentPriceCalculationExamples}.
+\end{enumerate}
 
 The results are valid only for the month they are rolled in, so if you'd like to
 try again you can do so next month, but if you do like the results make sure to
@@ -222,27 +239,139 @@ more opportunities than plausible if the user has many similar mods installed so
 the user is encouraged to limit the number of attempts to what looks plausible
 given current market conditions.
 
+
+\subsection{Hire}
+
+Modern equipment hire (models from the last 10 years) is quite straightforward
+and readily available, the per week is 1\% price of new reduce by 10\% if hiring
+for more than 8 weeks and by 20\% if hiring for more than 16 weeks. Apply (1d10
+- 1d10)\% modifier to the final price if you'd like to simulate a less
+predictable market.
+
+Older equipment is probably not for hire from the bigger companies online, but
+if you have neighbours they may be able to help you. Roll against 30\% chance if
+you're looking for something made in the last 11 to 30 years, and against 10\%
+chance if you're looking for something older still. The hire rate is 1\% of used
+category ``A'' price per week.
+
+\subsection{Equipment Wear Categories}
+
 The general wear and tear condition of equipment is important when performing
-reliability check calculation and will fall into one of the categories listed
-below.
-\begin{itemize}
-\item N -- Equipment was bought brand new, has spent less than 5 years on the
+reliability check calculations and when buying equipment. The the general state
+of equipment wear can be categorised as follows.
+\begin{description}
+\item[N] Equipment was bought brand new, has spent less than 5 years on the
   farm and has accumulated less than 100 hours.
-\item A -- The machine has seen little work with the previous owner or,
+\item[A] The machine has seen little work with the previous owner or,
   especially in case of historical equipment, has been fully refurbished to near
   factory-new state. (A modern tractor would probably have accumulated between
   100 and 1000 hours).
-\item B -- The machine has seen regular work for some time now, but is well
+\item[B] The machine has seen regular work for some time now, but is well
   looked after, no obvious signs of rust, etc. (A modern tractor would probably
   have accumulated between 1000 and 6000 hours).
-\item C -- The machine has seen considerable amount of work for many years, or
+\item[C] The machine has seen considerable amount of work for many years, or
   has only seen basic care for a few years, may have some visible signs of wear.
   (A modern tractor would probably have accumulated between 6000 and 12000
   hours.)
-\item D -- The machine has been used and abused for many years, it may still be
+\item[D] The machine has been used and abused for many years, it may still be
   fit for work, but maintenance issues should be expected. This piece of
   equipment wold probably not look out of place in a scrap yard.
-\end{itemize}
+\end{description}
+
+\begin{table}
+  \caption{Equipment Prices}
+  \rowcolors{3}{tableColor1}{white}
+  \begin{minipage}{0.5\textwidth}
+  \begin{center}
+  \begin{tabular}{lcccc}
+    \toprule
+    \multicolumn{5}{c}{Tractors (Price in \pounds per horsepower)}\\
+    Era     & <200hp & <100hp & <70hp & <50hp\\
+    \midrule
+    1950s*  &        & 210    & 165   & 150\\
+    1960s*  &        & 220    & 200   & 220\\
+    1970s*  &        & 230    & 215   &\\
+    1980s*  &        & 235    & 270   &\\
+    1990s   & 250    & 270    &       &\\
+    2000s   & 350    & 380    &       &\\
+    2010/14 & 445    & 455    &       &\\
+    2015/19 & 480    &        &       &\\
+    \midrule
+    \rowcolor{white}\multicolumn{5}{l}{* 2WD prices. Add (20 + 2d10)\% for MFWD.}\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \end{minipage}%
+%
+  \rowcolors{3}{tableColor1}{white}
+  \begin{minipage}{0.5\textwidth}
+  \begin{center}
+  \begin{tabular}{lcc}
+    \toprule 
+    \multicolumn{3}{c}{Tipper Trailers (Price in \pounds)}\\
+    Capacity  & Per Tonne & Per $m^3$\\
+    \midrule
+    $<10m^3$  & 800       & 1,500\\
+    $10-30m^3$& 650       & 1,250\\
+    $>30m^3$  & 600       & 700\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \end{minipage}
+  \label{tab:equipmentPrices}
+\end{table}
+
+\begin{table}
+\begin{center}
+  \caption{Equipment Price Modifiers}
+  \rowcolors{3}{tableColor1}{white}
+  \begin{tabular}{cc}
+    \toprule
+    Condition & Modifier\\
+    \midrule
+    N         & $(100 + 1d10 - 1d10)\%$\\
+    A         & $(70 + 1d10)\%$\\
+    B         & $(70 - 2d10)\%$\\
+    C         & $(50 - 1d10)\%$\\
+    D         & $(35 - 1d10)\%$\\
+    \bottomrule
+  \end{tabular}
+  \label{tab:equipmentPriceModifiers}
+\end{center}
+\end{table}
+
+\begin{table}
+  \caption{Equipment Price Calculation Examples}
+  \rowcolors{5}{tableColor1}{white}
+  \begin{center}
+  \begin{tabular}{ll}
+    Assuming base price $(P_b)$ of \pounds{}20,000.\\
+    \\
+    \toprule
+    Example &
+    Calculation
+    \\
+    \midrule
+    Pristine machine with lucky $M_c$ roll of $(100 + 3 - 9)\%$ &
+    $P_b \times M_c = \pounds{}20,000 \times 94\% = \pounds{}18,800$
+    \\
+    Category A used machine with $M_c$ roll of $(70 + 6)\%$ &
+    $P_b \times M_c = \pounds{}20,000 \times 76\% = \pounds{}14,800$
+    \\
+    Category C used machine, luckiest roll $(50 - 10)\%$&
+    $P_b \times M_c = \pounds{}20,000 \times 40\% = \pounds{}8,000$
+    \\
+    Category C used machine, average roll $(50 - 5)\%$&
+    $P_b \times M_c = \pounds{}20,000 \times 45\% = \pounds{}9,000$
+    \\
+    Category C used machine, most unlucky roll $(50 - 1)\%$&
+    $P_b \times M_c = \pounds{}20,000 \times 49\% = \pounds{}9,800$
+    \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \label{tab:equipmentPriceCalculationExamples}
+\end{table}
 
 \begin{table}
 \begin{minipage}{0.5\textwidth}
@@ -286,7 +415,7 @@ below.
 \section{Additional Expenses and Time}
 \begin{description}
 \item[Fuel] Suggested price \pounds{}1.50 (avg. price in UK in 2023-08). Mods
-  providing varied size fuel containers for purchase as ``pallets'' are quite
+  providing varied size fuel containers for purchase as ``pallettes'' are quite
   helpful, at least in the beginning of the game.
 \item[Personal expenses] Roll 4d100 at end of each month. This represents
   personal expenses like food, clothing, home utilities, etc. Feel free to
