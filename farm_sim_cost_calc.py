@@ -29,8 +29,14 @@ print(f"additional major failure chance: {inAddMajFP * 100:.0f}%")
 # tractor price by manufacturing decade, reference 50hp tractor but price is for
 # cheapest HP class price available for that period, 1950s-2000s by decade then
 # every five years i.e. 2010/14, 2015/19
-periodName = ["1950s", "1960s", "1970s", "1980s", "1990s", "2000s", "2010/14", "2015/19"]
-pricesHP = [150, 200, 215, 235, 250, 350, 445, 480] # price per HP
+periodHPPrices = [("1950s", 150),
+                ("1960s", 200),
+                ("1970s", 215),
+                ("1980s", 235),
+                ("1990s", 250),
+                ("2000s", 350),
+                ("2010/14", 445),
+                ("2015/19", 480)]
 refHP = inRefHP
 
 # minor and major failure probabilities for manufacturing decades 1950s to 2000s
@@ -46,7 +52,7 @@ minFixP = .05
 majFixP = .15
 
 # rought estimate of additional yearly cost due to failures
-for i in range(len(pricesHP)):
+for i in range(len(periodHPPrices)):
     cumMinFPs = minFPs[i] + addMinFP
     cumMajFPs = majFPs[i] + addMajFP
     failRate = 1 - ((1 - (cumMinFPs + cumMajFPs)) **12)
@@ -56,12 +62,12 @@ for i in range(len(pricesHP)):
     minFailRate = failRate * minProportion
     majFailRate = failRate * majProportion
 
-    machinePrice = pricesHP[i] * float(refHP)
+    machinePrice = periodHPPrices[i][1] * float(refHP)
     minFixCost = machinePrice * minFixP
     majFixCost = machinePrice * majFixP
     minMaintCostYear = minFixCost * minFailRate
     majMaintCostYear = majFixCost * majFailRate
     
-    print(f"\n{periodName[i]}")
+    print(f"\n{periodHPPrices[i][0]}")
     print(f"FR: {failRate*100:.2f}% minFR: {minFailRate*100:.2f}% majFR: {majFailRate*100:.2f}% minFix: {minFixCost} majFix: {majFixCost}")
     print(f"price machine: {machinePrice} maint_min: {minMaintCostYear:.0f} maint_maj: {majMaintCostYear:.0f} maint_tot: {minMaintCostYear + majMaintCostYear:.0f}")
