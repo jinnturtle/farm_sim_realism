@@ -3,7 +3,7 @@ SRC_DIR=src
 #TEX_COMPILER=--lualatex
 TEX_COMPILER=--xelatex --pdf
 OUT_DIR=out
-TEX_OUT=$(OUT_DIR)/jinns_realism.pdf 
+TEX_OUT=$(OUT_DIR)/jinns_unrealism.pdf 
 
 all: $(OUT_DIR) $(TEX_OUT)
 
