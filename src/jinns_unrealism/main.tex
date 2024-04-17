@@ -55,15 +55,32 @@
   \end{itemize}
 \item Recommended
   \begin{itemize}
-    \item Hand-operated and very small (sub 37hp) tools for sowing and planting.
-    \item Hand-operated tree planting tools.
-    \item Older tractors and equipment from 1990s to at least early 1960s or
-      late 1950s (e.g.  Ferguson 35).
-    \item A mod that shows fuel per hour consumption.
-    \item ``Crop Rotation''.
-    \item ``Fruits Adjustment''.
-    \item ``Grass Mowing''.
+  \item Hand-operated and very small (sub 37hp) tools for sowing and planting.
+  \item Hand-operated tree planting tools.
+  \item Older tractors and equipment from 1990s to at least early 1960s or
+    late 1950s (e.g.  Ferguson 35).
+  \item A mod that shows fuel per hour consumption.
+  \item ``Crop Rotation''.
+  \item ``Fruits Adjustment''.
+  \item ``Grass Mowing''.
   \end{itemize}
+\end{itemize}
+
+
+\section{Intro}
+This ruleset aims to emulate some of the additional considerations that farmers
+have to face, which are not currently replicated in the Simulator or not
+replicated well enough (in my subjective opinion). The ruleset facilitates
+role-play heavy play style and does not in any way purport to be accurate, the
+objective is realism-inspired immersion and (consequentially) fun.
+
+\subsection{Some Rules of Thumb}
+\begin{itemize}
+\item Time-based calculations e.g. time penalties assume a month length of one
+  day, so consider adjusting according to your settings.
+\item Prices are most likely reflective of the state of the economy around year
+  2023 and are probably UK-centric. You may wish to adjust accordingly (e.g. due
+  to inflation).
 \end{itemize}
 
 
@@ -280,8 +297,8 @@ of equipment wear can be categorised as follows.
 \item[D] The machine has been used and abused for many years, it may still be
   fit for work, but maintenance issues should be expected. This piece of
   equipment wold probably not look out of place in a scrap yard.
-\end{description}
-
+\end{description}%
+%
 \begin{table}
   \caption{Equipment Prices}
   \rowcolors{3}{tableColor1}{white}
@@ -301,7 +318,7 @@ of equipment wear can be categorised as follows.
     2010/14 & 445    & 455    &       &\\
     2015/19 & 480    &        &       &\\
     \midrule
-    \rowcolor{white}\multicolumn{5}{l}{* 2WD prices. Add (20 + 2d10)\% for MFWD.}\\
+    \rowcolor{white}\multicolumn{5}{l}{* 2WD prices. Add (20 + 2d10)\% if 4WD/MFWD.}\\
     \bottomrule
   \end{tabular}
   \end{center}
@@ -437,9 +454,17 @@ of equipment wear can be categorised as follows.
   Suggested distance is 25km (one way). This is to add some depth to the need
   for trailers and efficient tractors or trucks for delivery of goods. A mod
   that shows fuel consumption rate is especially helpful for this.
-\item[Manual Labour] Lack of time-saving equipment will cause additional
-  delays, which may be fun to simulate. E.g. A cheaper trailer without a tipping
-  function may add 5 minutes of work per $m^3$ when unloading at delivery.
+\item[Manual Labour] Lack of time-saving equipment will cause additional delays,
+  which may be fun to simulate.
+  \begin{itemize}
+  \item A cheaper trailer without a tipping function may add 5 minutes of work
+    per $m^3$ when unloading at delivery.
+  \item Handling heavy objects (e.g. produce boxes) without a loader or forklift
+    (or similar) will take time, e.g. 5 minutes for each item in 100-299kg
+    range, 10 minutes 300-599kg, 15 minutes 0.6-1.0t. If you're moving many
+    objects, you can probably halve the penalty after the first 2 items, as
+    setting up for ad-hoc handling.
+  \end{itemize}
 \end{description}
 
 \section{Quick Notes}
