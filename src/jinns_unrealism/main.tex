@@ -36,6 +36,10 @@
 \section{TODO Before RC}
 \begin{itemize}
 \item Resolve TODOs in the body of the document.
+\item Consider applying a harvest penalty if using older combines. E.g. 5\%
+  penalty per decade. Adjust combine purchase price accordingly (at least for
+  gameplay reasons as price seems consistent with power almost regardless of
+  age, at least in some markets (more research needed?)).
 \item Review probability balance in all tables. Esp. harvest and storage
   penalties.
 \item Review required and recommended mods list.
@@ -306,7 +310,7 @@ of equipment wear can be categorised as follows.
   \begin{center}
   \begin{tabular}{lcccc}
     \toprule
-    \multicolumn{5}{c}{Tractors (Price in \pounds per horsepower)}\\
+    \multicolumn{5}{c}{\textbf{Tractors} (Price in \pounds per horsepower)}\\
     Era     & <200hp & <100hp & <70hp & <50hp\\
     \midrule
     1950s*  &        & 210    & 165   & 150\\
@@ -318,7 +322,7 @@ of equipment wear can be categorised as follows.
     2010/14 & 445    & 455    &       &\\
     2015/19 & 480    &        &       &\\
     \midrule
-    \rowcolor{white}\multicolumn{5}{l}{* 2WD prices. Add (20 + 2d10)\% if 4WD/MFWD.}\\
+    \rowcolor{white}\multicolumn{5}{l}{* 2WD prices. Add 30\% if 4WD/MFWD.}\\
     \bottomrule
   \end{tabular}
   \end{center}
@@ -329,7 +333,7 @@ of equipment wear can be categorised as follows.
   \begin{center}
   \begin{tabular}{lcc}
     \toprule
-    \multicolumn{3}{c}{Tipper Trailers (Price in \pounds)}\\
+    \multicolumn{3}{c}{\textbf{Tipper Trailers} (Price in \pounds)}\\
     Capacity  & Per Tonne & Per $m^3$\\
     \midrule
     $<10m^3$  & 800       & 1,500\\
@@ -337,8 +341,8 @@ of equipment wear can be categorised as follows.
     $>30m^3$  & 600       & 700\\
     \midrule
     \midrule
-    \multicolumn{3}{c}{Combine Harvesters}\\
-    Era       & Per HP    &\\
+    \rowcolor{white}\multicolumn{3}{c}{\textbf{Combine Harvesters}}\\
+    \rowcolor{white}Era       & Per HP    &\\
     \midrule
     1970-2009 & 210       &\\
     \bottomrule
@@ -476,20 +480,20 @@ of equipment wear can be categorised as follows.
     realistically be acquired at \textsterling{}150 a piece for the rear and
     \textsterling{}75 for the front, tyres go for roughly the same
     price. Depending on the model getting all the bits for a twin-wheel rear
-    setup can add another \textsterling{}150 to the total. So getting
-    everything for a twin-rear wheel setup can come up to roughly
+    setup can add another \textsterling{}150 to the total. So getting everything
+    for a twin-rear wheel setup can come up to roughly
     \textsterling{}750\footnote{Sourced from various online markets, you would
-      probably get a better deal if you're lucky or well connected.} ($
-      \textsterling{}150_{wheel} \times 2 + \textsterling{}150_{tyre} \times 2 +
-      \textsterling{}150_{mod parts}$)
+    probably get a better deal if you're lucky or well connected.} ($
+    150_{wheel} \times 2 + 150_{tyre} \times 2 + 150_{mod parts}$)
   \end{itemize}
 \end{itemize}
 
 \section{Sources}
-Equipment specification sources from multiple locations on the web
-e.g. tractordata.com, www.lectura-specs.com.
+\paragraph{} Equipment specification sources from multiple locations on the web
+\newline e.g. \verb|tractordata.com|, \verb|www.lectura-specs.com|.
 
-Equipment prices sourced mainly from following websites: agriaffaires.co.uk,
-www.farmmachinerylocator.co.uk, autotrader.co.uk.
+\paragraph{} Equipment prices sourced mainly from following websites:
+\newline \verb|agriaffaires.co.uk|, \verb|www.farmmachinerylocator.co.uk|,
+\verb|autotrader.co.uk.|
 
 \end{document}
